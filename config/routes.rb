@@ -4,4 +4,6 @@ Scott::Application.routes.draw do
   resources :welcome, only: [:index]
 
   resources :users, only: [:new]
+
+  post 'signin', to: 'sessions#create'
 end

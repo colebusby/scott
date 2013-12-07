@@ -12,11 +12,4 @@
       %li= link_to "Products"
       %li= link_to "About Us"
       %li= link_to "Contact"
-    .row.pull-right
-      = form_tag nil, class: 'navbar-form' do
-        .col-xs-3
-          = text_field_tag :username, nil, class: 'form-control input-sm', placeholder: "Email"
-        .col-xs-3
-          = password_field_tag :password, nil, class: 'form-control input-sm', placeholder: "Password"
-        = submit_tag 'Login', class: 'btn btn-sm btn-success'
-        = link_to "Register",nil, class: 'btn btn-sm btn-danger'
+    = render '/shared/navbar_signin'
