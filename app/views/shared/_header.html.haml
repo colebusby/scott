@@ -1,5 +1,22 @@
-%nav.navbar.navbar-default.row{role: "navigation"}
-  .navbar-header.col-md-4
-    %h1.header_text Scott's Tasty Treats
-  %ul.nav.navbar-nav.navbar-right.col-md-2
-    %li= link_to "Register", new_user_path, class: "btn btn-success"
+%nav.navbar.navbar-default{role: "navigation"}
+  .navbar-header
+    %button.navbar-toggle{type: "button", data: {toggle: "collapse", target: "#menu-items"}}
+      %span.sr-only Toggle navigation
+      %span.icon-bar
+      %span.icon-bar
+      %span.icon-bar
+    %span.navbar-brand= link_to "Scott's Tasty Treats", root_path
+  .collapse.navbar-collapse#menu-items
+    %ul.nav.navbar-nav
+      %li.active= link_to "Home", root_path
+      %li= link_to "Products"
+      %li= link_to "About Us"
+      %li= link_to "Contact"
+    .row.pull-right
+      = form_tag nil, class: 'navbar-form' do
+        .col-xs-3
+          = text_field_tag :username, nil, class: 'form-control input-sm', placeholder: "Email"
+        .col-xs-3
+          = password_field_tag :password, nil, class: 'form-control input-sm', placeholder: "Password"
+        = submit_tag 'Login', class: 'btn btn-sm btn-success'
+        = link_to "Register",nil, class: 'btn btn-sm btn-danger'

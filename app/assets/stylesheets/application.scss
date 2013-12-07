@@ -10,12 +10,10 @@
  *
  *= require_self
  *= require bootstrap_form
+ *= require font-awesome
  *= require_tree .
  */
 
 @import "bootstrap";
 
-.container {
-  margin-left: 80px;
-}
 

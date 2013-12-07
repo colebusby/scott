@@ -11,6 +11,7 @@ gem 'bcrypt-ruby', '~> 3.1.2'
 gem 'bootstrap-sass', '~> 3.0.2.0'
 gem 'haml'
 gem 'bootstrap_form'
+gem 'font-awesome-sass'
 
 group :development do
   gem 'sqlite3'
