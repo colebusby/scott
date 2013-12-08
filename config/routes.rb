@@ -11,4 +11,6 @@ Scott::Application.routes.draw do
   get 'register', to: 'users#new'
 
   resources :products, only: [:index, :show]
+
+  post 'add_to_order', to: 'sessions#add_to_order'
 end
