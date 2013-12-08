@@ -1,1 +1,11 @@
-=bootstrap_form_for
+.panel
+  .panel-body
+    =bootstrap_form_for(@user, html: {class: 'form-horizontal'}, help: :block) do |f|
+      =f.alert_message "Please fix the errors below."
+      =f.text_field :name
+      =f.text_field :email
+      =f.password_field :password, help: 'Must be at least 6 characters long.'
+      =f.password_field :password_confirmation, label: 'Confirm Password'
+      %br
+      =f.actions do
+        =f.primary 'Create My Account', disable_with: 'Creating account...'

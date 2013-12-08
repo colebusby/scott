@@ -1,0 +1,17 @@
+.panel
+  %p Each of our delicious treats comes in a 5oz package, each priced at $5 plus shipping and handling.
+  = link_to nil, class: "btn btn-warning" do
+    %i.fa.fa-shopping-cart=" Checkout"
+.panel
+  - @products.each do |product|
+    - 12.times do
+      .col-md-4
+        .panel.panel-default.product-panel
+          .panel-body
+            .h3=product.name
+            %img(src="#{product.image_url}")
+            %p.product-description=product.description
+            %input.col-xs-2.input-sm{type: "text", style: "margin-right:20px"}= link_to "Add to Order",nil, class: "btn btn-info btn-sm"
+.panel
+  = link_to nil, class: "btn btn-warning" do
+    %i.fa.fa-shopping-cart=" Checkout"

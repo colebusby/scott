@@ -8,8 +8,8 @@
     %span.navbar-brand= link_to "Scott's Tasty Treats", root_path
   .collapse.navbar-collapse#menu-items
     %ul.nav.navbar-nav
-      %li.active= link_to "Home", root_path
-      %li= link_to "Products"
+      %li{class: "#{'active' if current_page?(root_path)}"}= link_to "Home", root_path
+      %li{class: "#{'active' if current_page?(products_path)}"}= link_to "Products", products_path
       %li= link_to "About Us"
       %li= link_to "Contact"
     = render '/shared/navbar_signin'
