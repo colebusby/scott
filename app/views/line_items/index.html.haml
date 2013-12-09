@@ -1,0 +1,27 @@
+.panel.panel-default.col-md-7
+  .table-responsive
+    %table.table.table-striped
+      %tr
+        %th product
+        %th quantity
+        %th price
+        %th product total
+        %th order total
+      - @line_items.each do |line_item|
+        %tr
+          %td
+            = link_to line_item, confirm: "Are you sure?", method: :delete do
+              %i.fa.fa-times.text-danger
+            = line_item.product_name
+          %td= line_item.quantity
+          %td= "$#{line_item.product_price/100}.00"
+          %td= "$#{line_item.product_price * line_item.quantity/100}.00"
+      %tr
+        %td
+        %td
+        %td
+        %td
+        %td= "$#{order_total(@line_items)/100}.00"
+
+.panel.panel-default.col-md-5
+  = "a form will go here to accept credit card info and complete order"

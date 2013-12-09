@@ -12,5 +12,5 @@ Scott::Application.routes.draw do
 
   resources :products, only: [:index, :show]
 
-  post 'add_to_order', to: 'sessions#add_to_order'
+  resources :line_items, only: [:index, :create, :destroy]
 end
