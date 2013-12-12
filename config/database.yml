@@ -3,7 +3,6 @@ development:
   encoding: utf8
   database: scott_development
   pool: 5
-  username:
   password:
 
 test: &TEST
@@ -11,7 +10,6 @@ test: &TEST
   encoding: utf8
   database: scott_test
   pool: 5
-  username:
   password:
 
 production:
@@ -19,5 +17,4 @@ production:
   encoding: utf8
   database: scott_production
   pool: 5
-  username:
   password:
