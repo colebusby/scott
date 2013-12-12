@@ -13,6 +13,8 @@ gem 'haml'
 gem 'bootstrap_form'
 gem 'font-awesome-sass'
 gem 'pg'
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+gem 'figaro'
 
 group :development do
   gem 'better_errors'

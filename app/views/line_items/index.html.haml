@@ -25,4 +25,4 @@
           %td= "$#{order_total(@line_items)/100}.00"
 
   .panel.panel-default.col-md-5
-    = "a form will go here to accept credit card info and complete order"
+    = render 'stripe_form'

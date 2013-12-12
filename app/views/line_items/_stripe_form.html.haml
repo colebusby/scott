@@ -1,0 +1,6 @@
+= form_tag charges_path do
+  %article
+    %label.amount
+      %span= "Amount: $#{order_total(@line_items)/100}.00"
+    =hidden_field_tag 'amount', order_total(@line_items)
+  %script.stripe-button{"data-amount" => "#{order_total(@line_items)}", "data-description" => "A month's subscription", "data-key" => Rails.configuration.stripe[:publishable_key], src: "https://checkout.stripe.com/checkout.js"}

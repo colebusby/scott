@@ -1,0 +1,7 @@
+.container
+  = bootstrap_form_for(@product) do |f|
+    =f.text_field :name
+    =f.text_field :description
+    =f.text_field :image_url
+    =f.number_field :price
+    =f.submit "add new treat"

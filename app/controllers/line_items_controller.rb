@@ -1,7 +1,7 @@
 class LineItemsController < ApplicationController
 
   def index
-    @line_items = LineItem.where(cart_id: current_cart.id)
+    @line_items = LineItem.where(cart_id: current_cart.try(:id))
   end
 
   def create
