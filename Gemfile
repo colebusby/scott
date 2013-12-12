@@ -12,9 +12,9 @@ gem 'bootstrap-sass', '~> 3.0.2.0'
 gem 'haml'
 gem 'bootstrap_form'
 gem 'font-awesome-sass'
+gem 'pg'
 
 group :development do
-  gem 'sqlite3'
   gem 'better_errors'
   gem 'binding_of_caller'
 end
@@ -26,7 +26,6 @@ end
 
 group :production do
   gem 'rails_12factor'
-  gem 'pg'
 end
 
 ruby "2.0.0"
