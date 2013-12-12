@@ -1,15 +1,10 @@
-%nav.navbar.navbar-default{role: "navigation"}
-  .navbar-header
-    %button.navbar-toggle{type: "button", data: {toggle: "collapse", target: "#menu-items"}}
-      %span.sr-only Toggle navigation
-      %span.icon-bar
-      %span.icon-bar
-      %span.icon-bar
-    %span.navbar-brand= link_to "Scott's Tasty Treats", root_path
-  .collapse.navbar-collapse#menu-items
-    %ul.nav.navbar-nav
-      %li{class: "#{'active' if current_page?(root_path)}"}= link_to "Home", root_path
-      %li{class: "#{'active' if current_page?(products_path)}"}= link_to "Products", products_path
-      %li= link_to "About Us"
-      %li= link_to "Contact"
+.container
+  .page-header.row
+    .col-md-6
+      %span.navbar-brand= link_to "Scott's Tasty Treats", root_path
+      %ul.nav.nav-pills
+        %li{class: "#{'active' if current_page?(root_path)}"}= link_to "Home", root_path
+        %li{class: "#{'active' if current_page?(products_path)}"}= link_to "Products", products_path
+        %li= link_to "About Us"
+        %li= link_to "Contact"
     = render '/shared/navbar_signin'

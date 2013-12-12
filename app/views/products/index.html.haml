@@ -1,20 +1,22 @@
-.panel
-  %p Each of our delicious treats comes in a 5oz package, each priced at $5 plus shipping and handling.
-  = link_to line_items_path, class: "btn btn-warning" do
-    %i.fa.fa-shopping-cart=" Checkout"
-.panel
-  - @products.each do |product|
-    - 12.times do
-      .col-md-4
-        .panel.panel-default.product-panel
-          .panel-body
-            = form_tag line_items_path do
-              .h3=product.name
-              %img(src="#{product.image_url}")
-              %p.product-description=product.description
-              = hidden_field_tag "line_items[][product_id]", product.id
-              = text_field_tag "line_items[][quantity]", "0", class: "col-xs-2 input-sm", style: "margin-right:20px"
-              = submit_tag "Add to Order", class: "btn btn-info btn-sm"
-.panel
-  = link_to line_items_path, class: "btn btn-warning" do
-    %i.fa.fa-shopping-cart=" Checkout"
+.container
+  .panel.row
+    %p Each of our delicious treats comes in a 5oz package, each priced at $5 plus shipping and handling.
+    = link_to line_items_path, class: "btn btn-warning" do
+      %i.fa.fa-shopping-cart=" Checkout"
+  .panel.row
+    - @products.each do |product|
+      - 12.times do
+        .col-md-4
+          .panel.panel-default.product-panel
+            .panel-body
+              = form_tag line_items_path do
+                .h3=product.name
+                %img.img-responsive(src="#{product.image_url}")
+                %p.product-description=product.description
+                = hidden_field_tag "line_items[][product_id]", product.id
+                = text_field_tag "line_items[][quantity]", "0", class: "col-xs-2 input-sm", style: "margin-right:20px"
+                = submit_tag "Add to Order", class: "btn btn-info btn-sm"
+                .visible-xs= link_to "Checkout", line_items_path, class: "btn btn-warning"
+  .panel
+    = link_to line_items_path, class: "btn btn-warning" do
+      %i.fa.fa-shopping-cart=" Checkout"

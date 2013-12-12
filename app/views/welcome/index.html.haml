@@ -1,10 +1,11 @@
-.panel.row
-  .col-md-6
-    %span
-      %h1 Chocolate Covered
-      %h1 Freeze Dried Goodness!
-    %span
-      %p Buy stuff, it is good.
-      =link_to "Order Today!", welcome_index_path, class: "btn btn-primary"
-  .col-md-4
-    %img.img-circle.pull-right{src: "/images/variety.png"}
+.jumbotron.row
+  .container
+    .col-md-6
+      %span
+        %h1 Chocolate Covered
+        %h1 Freeze Dried Goodness!
+      %span
+        %p Buy stuff, it is good.
+        =link_to "Order Today!", products_path, class: "btn btn-primary"
+    .col-md-4
+      %img.img-responsive.img-circle{src: "/images/variety.png"}

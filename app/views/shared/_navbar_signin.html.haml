@@ -1,19 +1,23 @@
-.row.pull-right
-  - if signed_in?
-    %ul.nav
-      %li.dropdown
-        %a(href="#" id="dlabel" role="button" data-toggle="dropdown" class="dropdown-toggle" data-target="#")
-          = "Welcome, #{current_user.name}"
-          %b.caret
-        %ul.dropdown-menu(role="menu" aria-labelledby="dlabel")
-          %li
-            = link_to "My Orders"
-            = link_to "Logout", signout_path
-  - else
-    = form_tag signin_path, class: 'navbar-form' do
-      .col-xs-3
-        = text_field_tag :email, nil, class: 'form-control input-sm', placeholder: "Email"
-      .col-xs-3
-        = password_field_tag :password, nil, class: 'form-control input-sm', placeholder: "Password"
-      = submit_tag 'Login', class: 'btn btn-sm btn-success'
-      = link_to "Register", register_path, class: 'btn btn-sm btn-danger'
+.col-md-6
+  .pull-right
+    - if signed_in?
+      %ul.nav
+        %li.dropdown
+          %a(href="#" id="dlabel" role="button" data-toggle="dropdown" class="dropdown-toggle" data-target="#")
+            = "Welcome, #{current_user.name}"
+            %b.caret
+          %ul.dropdown-menu(role="menu" aria-labelledby="dlabel")
+            %li
+              = link_to "My Orders"
+              = link_to "Logout", signout_path
+    - else
+      = form_tag signin_path, class: 'navbar-form' do
+        %form.form-inline{role: "form"}
+          .form-group
+            = text_field_tag :email, nil, class: 'form-control input-sm', placeholder: "Email"
+          .form-group
+            = password_field_tag :password, nil, class: 'form-control input-sm', placeholder: "Password"
+          .form-group
+            = submit_tag 'Login', class: 'btn btn-sm btn-success'
+          .form-group
+            = link_to "Register", register_path, class: 'btn btn-sm btn-danger'
