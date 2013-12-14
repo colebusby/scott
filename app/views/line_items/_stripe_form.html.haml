@@ -1,6 +1,29 @@
+%h3 Complete Order
 = form_tag charges_path do
+  %div{style: "padding-bottom:45px"}
+    .col-sm-3=label_tag "order[][name]", "Full Name"
+    .col-sm-9=text_field_tag "order[][name]"
+  %div{style: "padding-bottom:45px"}
+    .col-sm-3=label_tag "order[][address1]", "Address 1"
+    .col-sm-9=text_field_tag "order[][address1]"
+  %div{style: "padding-bottom:45px"}
+    .col-sm-3=label_tag "order[][address2]", "Address 2"
+    .col-sm-9=text_field_tag "order[][address2]"
+  %div{style: "padding-bottom:45px"}
+    .col-sm-3=label_tag "order[][city]", "City"
+    .col-sm-9=text_field_tag "order[][city]"
+  %div{style: "padding-bottom:45px"}
+    .col-sm-3=label_tag "order[][state]", "State"
+    .col-sm-2=text_field_tag "order[][state]"
+  %div{style: "padding-bottom:45px"}
+    .col-sm-3=label_tag "order[][zip]", "Zip"
+    .col-sm-3=text_field_tag "order[][zip]"
+  %div{style: "padding-bottom:45px"}
+    .col-sm-4=label_tag "order[][phone]", "Phone(optional)"
+    .col-sm-4=text_field_tag "order[][phone]"
   %article
     %label.amount
       %span= "Amount: $#{order_total(@line_items)/100}.00"
-    =hidden_field_tag 'amount', order_total(@line_items)
-  %script.stripe-button{"data-amount" => "#{order_total(@line_items)}", "data-description" => "A month's subscription", "data-key" => Rails.configuration.stripe[:publishable_key], src: "https://checkout.stripe.com/checkout.js"}
+    =hidden_field_tag "order[][total]", order_total(@line_items)
+    =hidden_field_tag "order[][description]", stripe_checkout_data_description
+  %script.stripe-button{"data-amount" => "#{order_total(@line_items)}", "data-description" => "Scott's Tasty Treats", "data-key" => Rails.configuration.stripe[:publishable_key], src: "https://checkout.stripe.com/checkout.js"}

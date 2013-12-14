@@ -1,10 +1,18 @@
-.container
-  .page-header.row
-    .col-md-6
-      %span.navbar-brand.hidden-xs= link_to "Scott's Tasty Treats", root_path
-      %ul.nav.nav-pills
+%nav.navbar.navbar-default{role: "navigation"}
+  / Brand and toggle get grouped for better mobile display
+  .container
+    .navbar-header
+      %button.navbar-toggle{"data-target" => "#scott-navbar-collapse-1", "data-toggle" => "collapse", type: "button"}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      %span.navbar-brand= link_to "Scott's Tasty Treats", root_path
+    / Collect the nav links, forms, and other content for toggling
+    #scott-navbar-collapse-1.collapse.navbar-collapse.pull-right
+      %ul.nav.navbar-nav
         %li{class: "#{'active' if current_page?(root_path)}"}= link_to "Home", root_path
         %li{class: "#{'active' if current_page?(products_path)}"}= link_to "Products", products_path
         %li= link_to "About Us"
         %li= link_to "Contact"
-    = render '/shared/navbar_signin'
+    / /.navbar-collapse

@@ -1,11 +1,41 @@
-.jumbotron.row
-  .container
-    .col-md-6
-      %span
-        %h1 Chocolate Covered
-        %h1 Freeze Dried Goodness!
-      %span
-        %p Buy stuff, it is good.
-        =link_to "Order Today!", products_path, class: "btn btn-primary"
-    .col-md-4
-      %img.img-responsive.img-circle{src: "/images/variety.png"}
+#welcomeContainer.container
+  #welcomeCarousel.carousel.slide
+    .container
+      %ol.carousel-indicators
+        %li.active{data: {target: "#welcomeCarousel", slide: {to: "0"}}}
+        %li{data: {target: "#welcomeCarousel", slide: {to: "1"}}}
+        %li{data: {target: "#welcomeCarousel", slide: {to: "2"}}}
+      .carousel-inner
+        .item.active
+          %img.img-rounded.center-block{src: "/images/variety.png"}
+        .item
+          %p Another Slide
+        .item
+          %p Slide 3
+    / %a.left.carousel-control{href: "#welcomeCarousel", data: {slide: "prev"}}
+    /   %span.icon-prev
+    / %a.right.carousel-control{href: "#welcomeCarousel", data: {slide: "next"}}
+    /   %span.icon-next
+  #welcomeContent.conainer.center-block
+    .row.center-block
+      .col-sm-4
+        .panel.panel-default.welcome-panel
+          .panel-heading
+            %h2.panel-title Homemade
+          %div
+            %h4.welcome-panel-description.center-block Homemade from the finest freeze-dried fruits and chocolates. Once you begin snacking on them, you won't be able to stop! They also make great gifts.
+      .col-sm-4
+        .panel.panel-default.welcome-panel
+          .panel-heading
+            %h2.panel-title Green
+          %div
+            %h4.welcome-panel-description.center-block With all our electricity generated onsite, Scott's Tasty Treats is working hard to be as green as can be! Our delivery vehicle is even an electric car!
+      .col-sm-4
+        .panel.panel-default.welcome-panel
+          .panel-heading
+            %h2.panel-title Great Selection
+          %div
+            %h4.welcome-panel-description.center-block.text-center See the selection and order yours today!
+          .text-center=link_to "See the Treats!", products_path, class: "btn btn-primary"
+          %div
+            %h4.welcome-panel-description.center-block.text-center Check out the special holiday fudge!

@@ -3,11 +3,10 @@
     .table-responsive
       %table.table.table-striped.table-hover
         %tr
-          %th product
-          %th quantity
-          %th price
-          %th product total
-          %th order total
+          %th Product
+          %th Quantity
+          %th Price
+          %th Product total
         - @line_items.each do |line_item|
           %tr
             %td
@@ -19,10 +18,11 @@
             %td= "$#{line_item.product_price * line_item.quantity/100}.00"
         %tr
           %td
+            %strong Order Total
           %td
           %td
           %td
-          %td= "$#{order_total(@line_items)/100}.00"
+            %strong= "$#{order_total(@line_items)/100}.00"
 
   .panel.panel-default.col-md-5
     = render 'stripe_form'

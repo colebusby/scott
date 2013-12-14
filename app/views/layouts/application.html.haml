@@ -10,7 +10,8 @@
   %body
     %header
       = render 'shared/header'
-      = render 'shared/messages'
-      = yield
+    = render 'shared/messages'
+    = yield
     %footer
-      &copy 2013 Scott's Tasty Treats
+      .container
+        &copy 2013 Scott's Tasty Treats
