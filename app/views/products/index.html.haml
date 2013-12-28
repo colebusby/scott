@@ -16,7 +16,7 @@
                 %p.product-description=product.description
                 = hidden_field_tag "line_items[][product_id]", product.id
                 .col-sm-4= text_field_tag "line_items[][quantity]", "0"
-                = submit_tag "Add to Order", class: "btn btn-info btn-sm"
+                = submit_tag "Add to Order", class: "btn btn-danger btn-sm"
                 .visible-xs= link_to "Checkout", line_items_path, class: "btn btn-warning"
   .panel
     = link_to line_items_path, class: "btn btn-warning" do
