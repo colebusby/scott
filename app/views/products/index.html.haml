@@ -3,9 +3,10 @@
     %p Each of our delicious treats comes in a 5oz package, each priced at $5 plus shipping and handling.
     = link_to line_items_path, class: "btn btn-warning" do
       %i.fa.fa-shopping-cart=" Checkout"
-  .panel.row
-    - @products.each do |product|
-      - 12.times do
+  - @categories.order('name asc').each do |category|
+    .h3.strong=category.name
+    .panel.row
+      - category.products.order('name asc').each do |product|
         .col-sm-4
           .panel.panel-default.product-panel
             .panel-body

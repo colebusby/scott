@@ -1,7 +1,11 @@
 .container
-  = bootstrap_form_for(@product) do |f|
-    =f.text_field :name
-    =f.text_field :description
-    =f.text_field :image_url
-    =f.number_field :price
-    =f.submit "add new treat"
+  .panel.row
+    =bootstrap_form_for(@product) do |f|
+      %div{style: "padding-bottom:15px"}
+        =f.text_field :name
+        =f.text_field :description
+        =f.text_field :image_url, value: "/images/"
+        =f.number_field :price
+        =f.collection_select :category_id, Category.all, :id, :name
+      %div
+        =f.primary "add new treat"
