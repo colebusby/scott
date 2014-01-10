@@ -1,28 +1,30 @@
 .container
   .panel.col-md-7
     .table-responsive
-      %table.table.table-striped.table-hover
-        %tr
-          %th Product
-          %th Quantity
-          %th Price
-          %th Product total
-        - @line_items.each do |line_item|
+      = form_tag update_line_item_path do
+        %table.table.table-striped.table-hover
+          %tr
+            %th Product
+            %th Quantity
+            %th Price
+            %th Product total
+          - @line_items.each do |line_item|
+            %tr
+              %td
+                = link_to line_item, confirm: "Are you sure?", method: :delete do
+                  %i.fa.fa-times.text-danger
+                = line_item.product_name
+              %td.col-sm-1
+                = text_field_tag "line_item[][quantity]", line_item.quantity
+              %td= "$#{line_item.product_price/100}.00"
+              %td= "$#{line_item.product_price * line_item.quantity/100}.00"
           %tr
             %td
-              = link_to line_item, confirm: "Are you sure?", method: :delete do
-                %i.fa.fa-times.text-danger
-              = line_item.product_name
-            %td= line_item.quantity
-            %td= "$#{line_item.product_price/100}.00"
-            %td= "$#{line_item.product_price * line_item.quantity/100}.00"
-        %tr
-          %td
-            %strong Order Total
-          %td
-          %td
-          %td
-            %strong= "$#{order_total(@line_items)/100}.00"
+              %strong Order Total
+            %td
+            %td
+            %td
+              %strong= "$#{order_total(@line_items)/100}.00"
 
   .panel.panel-default.col-md-5
     = render 'stripe_form'

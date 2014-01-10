@@ -2,10 +2,10 @@
   .panel.row
     =bootstrap_form_for(@product) do |f|
       %div{style: "padding-bottom:15px"}
-        =f.text_field :name
-        =f.text_field :description
-        =f.text_field :image_url, value: "/images/"
-        =f.number_field :price
-        =f.collection_select :category_id, Category.all, :id, :name
+        .col-sm-2=f.text_field :name
+        .col-sm-2=f.text_area :description
+        .col-sm-4=f.text_field :image_url, value: "/images/"
+        .col-sm-1=f.number_field :price
+        .col-sm-2=f.collection_select :category_id, Category.all, :id, :name
       %div
         =f.submit "add new treat"

@@ -14,6 +14,7 @@ Scott::Application.routes.draw do
   get 'add_new_treat', to: 'products#new'
 
   resources :line_items, only: [:index, :create, :destroy]
+  post 'update_line_item', to: 'line_items#update_line_item'
 
   resources :charges
 end
