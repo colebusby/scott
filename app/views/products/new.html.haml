@@ -8,4 +8,4 @@
         =f.number_field :price
         =f.collection_select :category_id, Category.all, :id, :name
       %div
-        =f.primary "add new treat"
+        =f.submit "add new treat"

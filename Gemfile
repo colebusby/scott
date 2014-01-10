@@ -15,6 +15,7 @@ gem 'font-awesome-sass'
 gem 'pg'
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 gem 'figaro'
+ruby '2.0.0'
 
 group :development do
   gem 'better_errors'
