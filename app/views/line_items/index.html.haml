@@ -15,13 +15,14 @@
                   %i.fa.fa-times.text-danger
                 = line_item.product_name
               %td.col-sm-1
-                = text_field_tag "line_item[][quantity]", line_item.quantity
+                = hidden_field_tag "line_items[][id]", line_item.id
+                = text_field_tag "line_items[][quantity]", line_item.quantity
               %td= "$#{line_item.product_price/100}.00"
               %td= "$#{line_item.product_price * line_item.quantity/100}.00"
           %tr
             %td
               %strong Order Total
-            %td
+            %td= submit_tag "Update Quantity", class: 'btn'
             %td
             %td
               %strong= "$#{order_total(@line_items)/100}.00"

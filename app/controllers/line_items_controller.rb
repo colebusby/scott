@@ -1,7 +1,7 @@
 class LineItemsController < ApplicationController
 
   def index
-    @line_items = LineItem.where(cart_id: current_cart.try(:id))
+    @line_items = LineItem.order(:id).where(cart_id: current_cart.try(:id))
   end
 
   def create
@@ -22,6 +22,22 @@ class LineItemsController < ApplicationController
   def destroy
     line_item = LineItem.find(params[:id])
     line_item.destroy
+    redirect_to line_items_path
+  end
+
+  def update_line_item
+    begin
+      ActiveRecord::Base.transaction do
+        params[:line_items].each do |line_item_data|
+          line_item = LineItem.find(line_item_data["id"])
+          quantity = line_item_data["quantity"].to_i
+          line_item.update_attribute(:quantity, quantity) if valid_quantity(quantity)
+        end
+      end
+    rescue ActiveRecord::RecordInvalid
+      flash[:error] = "Please enter a value between 1-99"
+    end
+
     redirect_to line_items_path
   end
 
