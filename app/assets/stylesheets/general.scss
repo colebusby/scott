@@ -15,8 +15,7 @@ header {
 }
 
 #welcomeCarousel {
-height: 400px;
-padding-top:50px;
+  height: 800px;
 }
 
 #welcomeContent {
@@ -24,8 +23,8 @@ padding-top:50px;
   max-width:90%
 }
 
-#welcomeContainer {
-  background-image:url('/images/strawberry_bowl.jpg');
-  background-color:#cccccc;
-  min-height:900px;
+.carousel_text {
+  margin-top: -700px;
+  background-color: rgba(243, 229, 229, 0.25);
+  color: #FFFFFF
 }
