@@ -17,4 +17,6 @@ Scott::Application.routes.draw do
   post 'update_line_item', to: 'line_items#update_line_item'
 
   resources :charges
+
+  resources :connects
 end
